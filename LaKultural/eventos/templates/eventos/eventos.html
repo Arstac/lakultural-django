@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Masthead-->
+<header class="masthead">
+    <div class="text-center">
+        <h2 class="section-heading text-uppercase">EVENTOS</h2>
+        <h6 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h6>
+    </div>
+</header>
+
+<div class="container py-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+        <!-- Event Card -->
+        {% for evento in eventos %}
+        <div class="col">
+            <div class="card bg-dark text-white h-100 border-0">
+                {% if evento.imagen %}
+                <img src="{{ evento.imagen.url }}" alt="{{ evento.nombre }}" class="img-fluid card-img-top rounded-3">
+                {% else %}
+                <p>No hay imagen disponible.</p>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ evento.nombre}}</h5>
+                    <p class="card-text">{{ evento.lugar}}</p>
+                </div>
+                <div class="card-footer">
+                    <small>Date and Price</small>
+                </div>
+            </div>
+        </div>
+        {% endfor%}
+    </div>
+</div>
+
+{% endblock %}

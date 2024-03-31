@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Masthead-->
+<header class="masthead my-20">
+    <div class="text-center">
+        <h2 class="section-heading text-uppercase">MUSICA</h2>
+        <h6 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h6>
+    </div>
+</header>
+
+
+<tr data-id="1" data-titulo="Canción 1" data-artista="Artista 1" data-audio-url="/path/to/audio1.mp3">
+
+
+
+<section class="page-section bg-black" id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 bdr tbl-container">
+                <table class="table table-dark table-borderless align-middle bdr table-responsive">
+                    <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Artista</th>
+                        <th scope="col">Reproducir</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for cancion in canciones %}
+                    <tr>
+                        <th scope="row">{{ cancion.id }}</th>
+                        <td>{{cancion.titulo}}</td>
+                        <td><a href="{% url 'booking:artista' cancion.artista.id %}" >{{cancion.artista.nombre}}</a></td>
+                        <td>
+                            <button onclick="preparePlayer({{ cancion.id }}, '{{ cancion.archivo_audio.url }}', '{{ cancion.titulo }}', '{{ cancion.artista.nombre }}', '{{ cancion.imagen.url }}')" class="btn btn-primary">Cargar</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4">
+                One of three columns
+              </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
