@@ -10,41 +10,68 @@
 </header>
 
 
-<tr data-id="1" data-titulo="Canción 1" data-artista="Artista 1" data-audio-url="/path/to/audio1.mp3">
+<!-- Contenido principal -->
+<div class="container mt-4">
+    <div class="row">
+      <div class="col">
+        <!-- Lista de canciones -->
+        <ul class="list-group list-group-flush">
 
-
-
-<section class="page-section bg-black" id="portfolio">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 bdr tbl-container">
-                <table class="table table-dark table-borderless align-middle bdr table-responsive">
-                    <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Titulo</th>
-                        <th scope="col">Artista</th>
-                        <th scope="col">Reproducir</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        {% for cancion in canciones %}
-                    <tr>
-                        <th scope="row">{{ cancion.id }}</th>
-                        <td>{{cancion.titulo}}</td>
-                        <td><a href="{% url 'booking:artista' cancion.artista.id %}" >{{cancion.artista.nombre}}</a></td>
-                        <td>
-                            <button onclick="preparePlayer({{ cancion.id }}, '{{ cancion.archivo_audio.url }}', '{{ cancion.titulo }}', '{{ cancion.artista.nombre }}', '{{ cancion.imagen.url }}')" class="btn btn-primary">Cargar</button>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+        {% for cancion in canciones %}
+          <!-- Elementos de la lista generados dinámicamente. Solo se muestra uno como ejemplo. -->
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <!-- Botón con el número y el icono -->
+            <div class="col-auto me-2">
+              <button class="btn icon-number-wrapper">
+                <span class="like-number">5</span>
+                <img src="{% static 'assets/img/icons/play_w.svg' %}" class="like-icon song-icon" alt="Play">
+              </button>
             </div>
-            <div class="col-4">
-                One of three columns
-              </div>
-        </div>
+
+            <!-- Imagen del evento/álbum -->
+            <div class="col-auto">
+              <img src="{% static 'assets/img/events/event1.png' %}" class="music-img rounded-2" alt="Event">
+            </div>
+          
+            <!-- Título de la canción y nombre del artista -->
+            <div class="col song-details">
+              <div class="fw-bold">{{cancion.titulo}}</div>
+              <div><a href="{% url 'booking:artista' cancion.artista.id %}" >{{cancion.artista.nombre}}</a></div>
+            </div>
+          
+            <!-- Nombre del álbum -->
+            <div class="col-auto d-none d-md-block">
+              Álbum
+            </div>
+          
+            <!-- Duración -->
+            <div class="col-auto d-none d-md-block">
+              05:19
+            </div>
+          
+            <!-- Botones de acción -->
+            <div class="col-auto d-none d-md-block">
+              <button class="btn">
+                <img src="{% static 'assets/img/icons/like_0.svg' %}" class="song-icon" alt="Like" onmouseover="this.src='like_1.svg';" onmouseout="this.src='like_0.svg';">
+              </button>
+              <button class="btn">
+                <img src="{% static 'assets/img/icons/down_w.svg' %}" class="song-icon" alt="Down">
+              </button>
+            </div>
+              <button class="btn d-block d-md-none">
+                <img src="{% static 'assets/img/icons/threedot_w.svg' %}" class="song-icon" alt="Menú">
+              </button>
+          </li>
+        {% endfor %}
+          <!-- Repetir <li> por cada canción -->
+
+        </ul>
+      </div>
     </div>
-</section>
+  </div>
+
+
+
+
+
 {% endblock %}

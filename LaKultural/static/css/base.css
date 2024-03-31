@@ -173,3 +173,80 @@ body {
 .masthead{
   margin-top: 60px;
 }
+
+
+
+
+
+
+
+/* ------------- */
+/* SONG SETTINGS */
+/* ------------- */
+
+
+.list-group-item {
+  border: none;
+  padding: 10px 15px;
+  background-color: transparent;
+  border-radius: .5rem !important;
+  margin-bottom: 0.5rem;
+  color: white !important;
+  overflow: hidden;
+}
+
+.list-group-item:hover {
+   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.music-img {
+object-fit: cover; /* Ensure the image covers the area */
+aspect-ratio: 1/1;
+height: 55px;
+margin-left: 0;
+}
+
+.song-icon {
+ aspect-ratio: 1/1;
+ height: 18px;
+ width: auto;
+}
+
+
+
+.icon-number-wrapper {
+ position: relative;
+ padding: 0 8px;
+ display: flex; /* Usar flexbox */
+ justify-content: center; /* Centrar horizontalmente */
+ align-items: center; /* Centrar verticalmente */
+}
+
+.music-img {
+margin-right: 10px;
+}
+
+
+.like-number, .like-icon {
+ position: absolute;
+ color: white;
+ transition: opacity 0.3s ease, visibility 0.3s ease;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.like-icon {
+ opacity: 0;
+ visibility: hidden;
+}
+
+.icon-number-wrapper:hover .like-icon {
+ opacity: 1;
+ visibility: visible;
+}
+
+.icon-number-wrapper:hover .like-number {
+ opacity: 0;
+ visibility: hidden;
+}
