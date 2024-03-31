@@ -145,3 +145,22 @@ body {
   .bd-mode-toggle .dropdown-menu .active .bi {
     display: block !important;
   }
+
+
+/* ------------- */
+/* CARD SETTINGS */
+/* ------------- */
+
+/*Li donc 30% de opacitat a les tarjetes dels artistes */
+  .card-background {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+  }
+
+/* Serveix per a que la imatge estigui en blanc i negre i al passar el ratoli torni el color */
+  .card-img-top {
+    filter: grayscale(100%); /* Convertir imagen a blanco y negro */
+    transition: filter 0.5s ease; /* Efecto de transición suave */
+  }
+  .card-img-top:hover {
+    filter: grayscale(0); /* Restaurar color al pasar el ratón por encima */
+  }
