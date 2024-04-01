@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<!-- Masthead-->
+<!-- Masthead -->
 <header class="masthead my-20">
     <div class="text-center">
         <h2 class="section-heading text-uppercase">MUSICA</h2>
@@ -9,69 +9,66 @@
     </div>
 </header>
 
+<!-- Main Content -->
+<div class="container-fluid mt-4">
+  <!-- Song List -->
+  <div class="list-group list-group-flush">
 
-<!-- Contenido principal -->
-<div class="container mt-4">
-    <div class="row">
-      <div class="col">
-        <!-- Lista de canciones -->
-        <ul class="list-group list-group-flush">
-
-        {% for cancion in canciones %}
-          <!-- Elementos de la lista generados dinámicamente. Solo se muestra uno como ejemplo. -->
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <!-- Botón con el número y el icono -->
-            <div class="col-auto me-2">
-              <button class="btn icon-number-wrapper">
-                <span class="like-number">5</span>
-                <img src="{% static 'assets/img/icons/play_w.svg' %}" class="like-icon song-icon" alt="Play">
-              </button>
-            </div>
-
-            <!-- Imagen del evento/álbum -->
-            <div class="col-auto">
-              <img src="{% static 'assets/img/events/event1.png' %}" class="music-img rounded-2" alt="Event">
-            </div>
-          
-            <!-- Título de la canción y nombre del artista -->
-            <div class="col song-details">
-              <div class="fw-bold">{{cancion.titulo}}</div>
-              <div><a href="{% url 'booking:artista' cancion.artista.id %}" >{{cancion.artista.nombre}}</a></div>
-            </div>
-          
-            <!-- Nombre del álbum -->
-            <div class="col-auto d-none d-md-block">
-              Álbum
-            </div>
-          
-            <!-- Duración -->
-            <div class="col-auto d-none d-md-block">
-              05:19
-            </div>
-          
-            <!-- Botones de acción -->
-            <div class="col-auto d-none d-md-block">
-              <button class="btn">
-                <img src="{% static 'assets/img/icons/like_0.svg' %}" class="song-icon" alt="Like" onmouseover="this.src='like_1.svg';" onmouseout="this.src='like_0.svg';">
-              </button>
-              <button class="btn">
-                <img src="{% static 'assets/img/icons/down_w.svg' %}" class="song-icon" alt="Down">
-              </button>
-            </div>
-              <button class="btn d-block d-md-none">
-                <img src="{% static 'assets/img/icons/threedot_w.svg' %}" class="song-icon" alt="Menú">
-              </button>
-          </li>
-        {% endfor %}
-          <!-- Repetir <li> por cada canción -->
-
-        </ul>
+    {% for cancion in canciones %}
+    <!-- List items dynamically generated. Only one shown as an example. -->
+    <div class="row list-group-item align-items-center text-start">
+      <!-- Button with the number and icon -->
+      <div class="col-1 me-2">
+        <button class="btn icon-number-wrapper">
+          <span class="like-number">5</span>
+          <img src="{% static 'assets/img/icons/play_w.svg' %}" class="like-icon song-icon" alt="Play">
+        </button>
       </div>
+
+      <!-- Event/Album Image -->
+      <div class="col-1">
+        <img src="{% static 'assets/img/events/event1.png' %}" class="music-img rounded-2" alt="Event">
+      </div>
+    
+      <!-- Song title and artist name -->
+      <div class="col-3 song-details">
+        <div class="fw-bold">{{ cancion.titulo }}</div>
+        <div>
+          <a href="{% url 'booking:artista' cancion.artista.id %}" >{{ cancion.artista.nombre }}</a>
+        </div>
+      </div>
+    
+      <!-- Album Name -->
+      <div class="col-2 d-none d-md-block">
+        Álbum
+      </div>
+    
+      <!-- Duration -->
+      <div class="col-2 d-none d-md-block">
+        05:19
+      </div>
+    
+      <!-- Action Buttons -->
+      <div class="col-2 d-none d-md-block">
+        <button class="btn">
+          <img src="{% static 'assets/img/icons/like_0.svg' %}" class="song-icon" alt="Like" onmouseover="this.src='{% static 'assets/img/icons/like_1.svg' %}';" onmouseout="this.src='{% static 'assets/img/icons/like_0.svg' %}';">
+        </button>
+        <button class="btn">
+          <img src="{% static 'assets/img/icons/down_w.svg' %}" class="song-icon" alt="Down">
+        </button>
+      </div>
+
+      <div class="col-1 d-block d-md-none">
+        <button class="btn">
+          <img src="{% static 'assets/img/icons/threedot_w.svg' %}" class="song-icon" alt="Menu">
+        </button>
+      </div>
+
     </div>
+    {% endfor %}
+    <!-- Repeat <div class="row"> for each song -->
+
   </div>
-
-
-
-
+</div>
 
 {% endblock %}

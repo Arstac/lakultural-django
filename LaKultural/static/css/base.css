@@ -148,6 +148,25 @@ body {
 
 
 /* ------------- */
+/* LINK SETTINGS */
+/* ------------- */
+
+  a {
+      color: rgb(190, 190, 190); /* Cambia 'black' por el color que prefieras */
+      text-decoration: none; /* Opcional: elimina el subrayado del enlace */
+  }
+  
+  /* Cambia el color de los enlaces al pasar el mouse */
+  a:hover {
+      color: rgb(255, 255, 255); /* Cambia 'grey' por el color que prefieras para el hover */
+  }
+
+  /* Cambia el color de los enlaces visitados */
+  a:visited {
+      color: rgb(190, 190, 190); /* Cambia 'purple' por el color que prefieras para enlaces visitados */
+  }
+
+/* ------------- */
 /* CARD SETTINGS */
 /* ------------- */
 
@@ -176,77 +195,94 @@ body {
 
 
 
-
-
-
-
 /* ------------- */
 /* SONG SETTINGS */
 /* ------------- */
 
 
+/* General List Group Styling */
 .list-group-item {
   border: none;
   padding: 10px 15px;
+  display: flex;
   background-color: transparent;
   border-radius: .5rem !important;
   margin-bottom: 0.5rem;
   color: white !important;
-  overflow: hidden;
+
 }
 
 .list-group-item:hover {
-   background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Music Image Styling */
 .music-img {
-object-fit: cover; /* Ensure the image covers the area */
-aspect-ratio: 1/1;
-height: 55px;
-margin-left: 0;
+  object-fit: cover; /* Ensure the image covers the area */
+  width: 55px; /* Set a fixed width */
+  height: 55px; /* Set a fixed height to maintain aspect ratio */
+  margin-right: 10px; /* Add spacing to the right of the image */
 }
 
+/* Song Icon Styling */
 .song-icon {
- aspect-ratio: 1/1;
- height: 18px;
- width: auto;
+  height: 18px; /* Set the height for the icon */
+  width: 18px; /* Set the width to maintain aspect ratio */
 }
 
-
-
+/* Number Icon Wrapper Styling */
 .icon-number-wrapper {
- position: relative;
- padding: 0 8px;
- display: flex; /* Usar flexbox */
- justify-content: center; /* Centrar horizontalmente */
- align-items: center; /* Centrar verticalmente */
+  position: relative;
+  padding: 0 8px;
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
-.music-img {
-margin-right: 10px;
-}
-
-
+/* Styling for Like Number and Like Icon */
 .like-number, .like-icon {
- position: absolute;
- color: white;
- transition: opacity 0.3s ease, visibility 0.3s ease;
- display: flex;
- justify-content: center;
- align-items: center;
+  position: absolute;
+  color: white;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .like-icon {
- opacity: 0;
- visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .icon-number-wrapper:hover .like-icon {
- opacity: 1;
- visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .icon-number-wrapper:hover .like-number {
- opacity: 0;
- visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
+
+/* Responsive Adjustments for Display on Different Screen Sizes */
+@media (max-width: 768px) {
+  /* For smaller screens, you might want to adjust padding, font sizes, etc. */
+}
+
+/* Other specific stylings for your buttons and additional elements can be added here */
+
+/* Ensure the action buttons don't wrap or overflow */
+.btn {
+  white-space: nowrap; /* Prevent wrapping of button contents */
+  overflow: hidden; /* Prevent overflow */
+  text-overflow: ellipsis; /* Add ellipsis to overflowed text */
+}
+
+/* This ensures that the '...' button for small screens is visible */
+.d-block.d-md-none .btn {
+  padding: 0; /* Adjust padding for small screen buttons if needed */
+}
+
+/* You can add hover effects or additional stylings below */
+
+
