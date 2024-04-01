@@ -14,7 +14,7 @@
         <!-- Event Card -->
         {% for evento in eventos %}
         <div class="col">
-            <div class="card bg-dark text-white h-100 border-0">
+            <div class="card card-movement bg-dark text-white h-100 border-0">
                 {% if evento.imagen %}
                 <img src="{{ evento.imagen.url }}" alt="{{ evento.nombre }}" class="img-fluid card-img-top rounded-3">
                 {% else %}
@@ -25,7 +25,7 @@
                     <p class="card-text">{{ evento.lugar}}</p>
                 </div>
                 <div class="card-footer">
-                    <small>Date and Price</small>
+                    <small>{{ evento.fecha|date}}</small>
                 </div>
             </div>
         </div>
