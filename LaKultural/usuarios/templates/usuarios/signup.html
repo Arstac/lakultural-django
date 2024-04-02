@@ -8,7 +8,7 @@
         <div class="col-md-8 ">
           <div class="card shadow">
             <div class="card-body ">
-              <h2 class="text-center mb-4">Sign up</h2>
+              <h2 class="text-center mb-4">Registrarse</h2>
               <form method="POST">
                 {% csrf_token %}
 
@@ -63,11 +63,11 @@
                 </div>
 
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary btn-lg mt-2 mb-3">Sign up</button>
+                  <button type="submit" class="btn btn-light btn-lg mt-2 mb-3 w-100">Registrarse</button>
                 </div>
 
                 <p class="text-center">
-                  <a href="{% url 'usuarios:login' %}" class="text-muted">Already have an account? Sign in</a>
+                  <a href="{% url 'usuarios:login' %}" class="text-muted">¿Ya tienes una cuenta? Iniciar sesión</a>
                 </p>
 
               </form>
