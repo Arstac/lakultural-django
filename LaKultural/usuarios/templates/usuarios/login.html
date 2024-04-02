@@ -2,37 +2,46 @@
 {% load static %}
 {% block content %}
 
-<section class="my-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6">
-                <div class="card shadow">
-                    <div class="card-body">
-                        <h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
-                        <form method="POST" class="form-signin">
-                            {% csrf_token %}
-                            {% for field in form %}
-                                <div class="form-group">
-                                    <label for="{{ field.id_for_label }}" class="sr-only">{{ field.label }}</label>
-                                    <input type="text" id="{{ field.id_for_label }}" class="form-control mb-2" placeholder="{{ field.label }}" required autofocus name="{{ field.html_name }}">
-                                    {% if field.help_text %}
-                                        <small class="form-text text-muted">{{ field.help_text }}</small>
-                                    {% endif %}
-                                    {% for error in field.errors %}
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ error }}
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                            {% endfor %}
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                            <p class="mt-2 text-center"><a href="{% url 'usuarios:signup' %}">Don't have an Account? Create one</a></p>
-                        </form>
-                    </div>
+<section class="marge-sup">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow">
+          <div class="card-body">
+            <h2 class="text-center mb-4">Please sign in</h2>
+            <form method="POST">
+              {% csrf_token %}
+              <div class="form-group mb-4 text-start">
+                <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                <input type="{{ form.username.field.widget.input_type }}" id="{{ form.username.id_for_label }}" class="form-control" placeholder="Username" required autofocus name="{{ form.username.html_name }}">
+                {% if form.username.help_text %}
+                  <small class="form-text text-muted">{{ form.username.help_text }}</small>
+                {% endif %}
+              </div>
+              <div class="form-group mb-4 text-start">
+                <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+                <input type="password" id="{{ form.password.id_for_label }}" class="form-control" placeholder="Password" required name="{{ form.password.html_name }}">
+                {% if form.password.help_text %}
+                  <small class="form-text text-muted">{{ form.password.help_text }}</small>
+                {% endif %}
+              </div>
+              {% for error in form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">
+                  {{ error }}
                 </div>
-            </div>
+              {% endfor %}
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg mt-2 mb-3">Sign in</button>
+              </div>
+              <p class="text-center">
+                <a href="{% url 'usuarios:signup' %}" class="text-muted">Don't have an Account? Create one</a>
+              </p>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
 {% endblock %}

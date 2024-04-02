@@ -333,7 +333,7 @@ body {
 
 .signup-section .text-muted {
   display: block; /* Opcional: para cambiar la visualización del enlace */
-  margin-top: 2rem; /* Espacio antes del enlace de cambio al formulario de inicio de sesión */
+  margin-top: .5rem; /* Espacio antes del enlace de cambio al formulario de inicio de sesión */
   font-size: 0.9rem; /* Un tamaño de fuente menor para el enlace a 'Sign in' */
 }
 
@@ -342,4 +342,27 @@ body {
   .signup-section .col-md-8 {
     width: 90%; /* Puede ajustar esto para cambiar el ancho en dispositivos más pequeños */
   }
+}
+
+
+.marge-sup {
+  margin-top: 120px;
+}
+
+.login-signup-control input {
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }

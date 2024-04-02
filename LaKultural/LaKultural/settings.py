@@ -85,6 +85,7 @@ DATABASES = {
 
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -132,3 +133,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 #Per un entorn de produccio
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+AUTHENTICATION_BACKENDS = [
+    # La ruta a tu backend personalizado
+    'usuarios.backends.EmailOrUsernameModelBackend',
+    # Django ModelBackend para autenticación predeterminada
+    'django.contrib.auth.backends.ModelBackend',
+]

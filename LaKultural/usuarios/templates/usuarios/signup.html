@@ -2,34 +2,74 @@
 {% load static %}
 {% block content %}
 
-<section class="signup-section my-5">
+<section class="signup-section marge-sup">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-8">
+      <div class="row justify-content-center ">
+        <div class="col-md-8 ">
           <div class="card shadow">
-            <div class="card-body">
+            <div class="card-body ">
               <h2 class="text-center mb-4">Sign up</h2>
               <form method="POST">
                 {% csrf_token %}
-                <div class="form-group mb-3">
+
+                <div class="form-group mb-4 text-start">
                   <label for="{{ form.username.id_for_label }}">Nombre de usuario</label>
-                  <input type="text" id="{{ form.username.id_for_label }}" class="form-control" placeholder="Nombre de usuario" required autofocus>
+                  <div class="login-signup-control">
+                    {{ form.username }}
+                  </div>
+                  {% if form.username.errors %}
+                  <div class="alert alert-danger">
+                    {{ form.username.errors.as_text }}
+                  </div>
+                  {% endif %}
                 </div>
-                <div class="form-group mb-1">
+
+                <div class="form-group mb-4 text-start">
+                  <label for="{{ form.email.id_for_label }}">Correo electrónico</label>
+                  <div class="login-signup-control">
+                    {{ form.email }}
+                  </div>
+                  {% if form.email.errors %}
+                  <div class="alert alert-danger">
+                    {{ form.email.errors.as_text }}
+                  </div>
+                  {% endif %}
+                </div>
+
+                <div class="form-group text-start">
                   <label for="{{ form.password.id_for_label }}">Contraseña</label>
-                  <input type="password" id="{{ form.password.id_for_label }}" class="form-control" placeholder="Contraseña" required>
+                  <div class="login-signup-control">
+                    {{ form.password1 }}
+                  </div>
+                  {% if form.password1.errors %}
+                  <div class="alert alert-danger">
+                    {{ form.password1.errors.as_text }}
+                  </div>
+                  {% endif %}
                 </div>
-                <small class="form-text text-muted mb-3">La contraseña debe contener al menos 8 caracteres.</small>
-                <div class="form-group mb-3">
+
+                <small class="form-text text-muted mb-4 text-start">La contraseña debe contener al menos 8 caracteres.</small>
+
+                <div class="form-group mb-3 text-start">
                   <label for="{{ form.password2.id_for_label }}">Contraseña (confirmación)</label>
-                  <input type="password" id="{{ form.password2.id_for_label }}" class="form-control" placeholder="Confirma tu contraseña" required>
+                  <div class="login-signup-control">
+                    {{ form.password2 }}
+                  </div>
+                  {% if form.password2.errors %}
+                  <div class="alert alert-danger">
+                    {{ form.password2.errors.as_text }}
+                  </div>
+                  {% endif %}
                 </div>
+
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary btn-lg mt-2 mb-3">Sign up</button>
                 </div>
+
                 <p class="text-center">
                   <a href="{% url 'usuarios:login' %}" class="text-muted">Already have an account? Sign in</a>
                 </p>
+
               </form>
             </div>
           </div>
@@ -38,3 +78,13 @@
     </div>
   </section>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
