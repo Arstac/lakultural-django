@@ -4,12 +4,12 @@
 <!-- Masthead -->
 <header class="masthead my-20">
     <div class="text-center">
-        <h2 class="section-heading text-uppercase">MUSICA</h2>
+        <h1 class="section-heading text-uppercase">MUSICA</h1>
     </div>
 </header>
 
 <!-- Main Content -->
-<div class="container mt-4">
+<div class="container my-4">
   <!-- Song List -->
   <div class="list-group list-group-flush">
 
@@ -17,12 +17,12 @@
     <!-- List items dynamically generated. -->
     <div class="row list-group-item align-items-center text-start">
       <!-- Album Image -->
-      <div class="col-4 col-md-1">
+      <div class="col-3 col-md-1">
         <img src="{% static 'assets/img/events/event1.png' %}" class="img-fluid rounded-2" alt="Event">
       </div>
     
       <!-- Song title and artist name -->
-      <div class="col-6 col-md-3">
+      <div class="col-7 col-md-3">
         <div class="fw-bold">{{ cancion.titulo }}</div>
         <div>{{ cancion.artista.nombre }}</div>
       </div>

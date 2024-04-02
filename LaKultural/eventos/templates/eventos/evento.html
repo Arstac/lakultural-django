@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Masthead-->
+<header class="masthead">
+    <div class="text-center">
+        <h1 class="section-heading text-uppercase">EVENTOS</h1>
+    </div>
+</header>
+
+<div class="container py-5 text-start">
+    <div class="row mb-5">
+      <div class="col-lg-8 d-flex flex-column justify-content-center">
+        <h2>{{evento.nombre}}</h2>
+        <p>{{evento.fecha}}</p>
+        <p>{{evento.lugar}}</p>
+        <a href="#" class="btn btn-light text-uppercase">Comprar Entradas</a>
+      </div>
+      <div class="col-lg-4">
+        <div class="event-card p-3">
+          <img src="{% static 'assets/img/events/event1.png' %}" alt="Amygdala" class="img-fluid">
+        </div>
+      </div>
+    </div>
+    <!-- Descripción -->
+    <div class="row">
+        <div class="col">
+        <h2 class="mb-3">Descripción</h2>
+        <p>¡No Es Ruido vuelve a la carga con otra noche perfecta para mover los pies! Amygdala llega a La Clandestina Manresa acompañado de Kuza, Loxive y Me Das Mucho Amor. ¡El próximo 16 de marzo tienes una nueva cita con la música que amas, NO ES RUIDO SI TE HACE BAILAR!</p>
+        </div>
+    </div>
+    
+    <!-- Artistas -->
+    <div class="row mt-4">
+        <div class="col">
+        <h3>Artistas</h3>
+        <ul>
+            <li>Amygdala</li>
+            <li>Loxive</li>
+            <li>MDMA (Me Das Mucho Amor)</li>
+            <li>Kuza</li>
+        </ul>
+        </div>
+    </div>
+  
+  <!-- Información Adicional -->
+  <div class="row mt-4">
+    <div class="col">
+      <h3>INFORMACIÓN ADICIONAL</h3>
+      <p>Horario: 00:00 – 06:00 h</p>
+      <p>Edad: +18 Años</p>
+      <p>No se pueden realizar cambios ni devoluciones de entradas ya adquiridas. Únicamente se reembolsará el importe de las entradas en caso de incidencia técnica o de cancelación del evento por parte de la organización. Las cancelaciones no incluyen casos de fuerza mayor.</p>
+    </div>
+  </div>
+      <!-- Inclueix events relacions i FAQS-->
+    {% include 'eventos/related_events.html' %}
+    {% include 'faqs.html' %}
+
+</div>
+{% endblock %}
+
+
+
+<div class="container mt-5">
+    <!-- Descripción -->
+    <div class="row">
+      <div class="col">
+        <h2 class="mb-3">Descripción</h2>
+        <p>¡No Es Ruido vuelve a la carga con otra noche perfecta para mover los pies! Amygdala llega a La Clandestina Manresa acompañado de Kuza, Loxive y Me Das Mucho Amor. ¡El próximo 16 de marzo tienes una nueva cita con la música que amas, NO ES RUIDO SI TE HACE BAILAR!</p>
+      </div>
+    </div>
+    
+    <!-- Artistas -->
+    <div class="row mt-4">
+      <div class="col">
+        <h3>Artistas</h3>
+        <ul>
+          <li>Amygdala</li>
+          <li>Loxive</li>
+          <li>MDMA (Me Das Mucho Amor)</li>
+          <li>Kuza</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Información Adicional -->
+    <div class="row mt-4">
+      <div class="col">
+        <h3>INFORMACIÓN ADICIONAL</h3>
+        <p>Horario: 00:00 – 06:00 h</p>
+        <p>Edad: +18 Años</p>
+        <p>No se pueden realizar cambios ni devoluciones de entradas ya adquiridas. Únicamente se reembolsará el importe de las entradas en caso de incidencia técnica o de cancelación del evento por parte de la organización. Las cancelaciones no incluyen casos de fuerza mayor.</p>
+      </div>
+    </div>
+  </div>

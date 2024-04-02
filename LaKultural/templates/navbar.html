@@ -12,7 +12,10 @@
         <img src="{% static 'assets/img/logos/k_lakultural_lletres_blanc.svg' %}" alt="lakultulogo" height="30px" width="100%">
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body">
+      <div class="offcanvas-body text-start">        
+        <form class="d-flex mt-3 mt-lg-0" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+        </form>
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
             <a class="nav-link" href="{% url 'tienda:tienda' %}">Tienda</a>
@@ -45,9 +48,7 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex mt-3 mt-lg-0" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-        </form>
+
       </div>
     </div>
   </div>
