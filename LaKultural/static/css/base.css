@@ -23,6 +23,8 @@ body {
   background-image: url("/static/assets/img/logos/bg_k1.svg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -157,18 +159,18 @@ h1, h2, h3, h4, h5, h6 {
 /* LINK SETTINGS */
 /* ------------- */
 
-  a {
+  .artista-song a {
       color: rgb(190, 190, 190); /* Cambia 'black' por el color que prefieras */
       text-decoration: none; /* Opcional: elimina el subrayado del enlace */
   }
   
   /* Cambia el color de los enlaces al pasar el mouse */
-  a:hover {
+  .artista-song a:hover {
       color: rgb(255, 255, 255); /* Cambia 'grey' por el color que prefieras para el hover */
   }
 
   /* Cambia el color de los enlaces visitados */
-  a:visited {
+  .artista-song a:visited {
       color: rgb(190, 190, 190); /* Cambia 'purple' por el color que prefieras para enlaces visitados */
   }
 
@@ -179,6 +181,10 @@ h1, h2, h3, h4, h5, h6 {
 /*Li donc 30% de opacitat a les tarjetes dels artistes */
   .card-background {
     background-color: rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .card-login-background {
+    background-color: rgba(120, 120, 120, 0.1) !important;
   }
 
 /* Serveix per a que la imatge estigui en blanc i negre i al passar el ratoli torni el color */
