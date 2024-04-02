@@ -67,3 +67,16 @@ function preparePlayer(songId, audioUrl, title, artist, imageUrl) {
     // Opcional: Si quieres reproducir automáticamente la canción al cargarla
     // audioPlayer.play();
 }
+
+
+//Regula la opacitat del navbar
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar'); // Cambia a tu selector de navbar específico
+    const maxOpacity = 0.6;
+    const scrollRange = 500; // Ajusta este valor según la altura a partir de la cual la opacidad debe llegar a 0.3
+    let scrollY = window.scrollY || window.pageYOffset;
+    let opacity = scrollY / scrollRange * maxOpacity;
+    opacity = Math.min(maxOpacity, opacity); // Asegura que la opacidad no exceda de 0.3
+  
+    navbar.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+  });

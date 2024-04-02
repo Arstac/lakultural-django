@@ -2,12 +2,49 @@
 {% load static %}
 {% block content %}
 
-<main class="px-3 main-cover mx-auto my-auto">
-    <h1>Cover your page.</h1>
-    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-    <p class="lead">
-      <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
-    </p>
-  </main>
-        
+<!-- Usamos 'vh-100' para hacer que el contenedor tenga al menos el alto de la pantalla -->
+<!-- 'd-flex' hace que el contenedor use Flexbox -->
+<!-- 'justify-content-center' centra los elementos en el eje horizontal -->
+<!-- 'align-items-center' centra los elementos en el eje vertical -->
+<div class="container d-flex vh-100 justify-content-center align-items-center">
+  <div class="d-block d-md-none">
+    <div class="row">
+      <!-- Cada imagen en una columna de 'col-6' para tener 2 imágenes por fila -->
+      <div class="col-6">
+        <a href="{% url 'musica:musica' %}">
+          <img src="{% static 'assets/img/events/event1.png' %}" alt="Descripción" class="img-fluid  rounded-3 mb-2"/>
+        </a>
+      </div>
+      <div class="col-6">
+        <a href="{% url 'musica:musica' %}">
+          <img src="{% static 'assets/img/events/event1.png' %}" alt="Descripción" class="img-fluid  rounded-3 mb-2"/>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <a href="{% url 'musica:musica' %}">
+          <img src="{% static 'assets/img/events/event1.png' %}" alt="Descripción" class="img-fluid rounded-3"/>
+        </a>
+      </div>
+      <div class="col-6">
+        <a href="{% url 'musica:musica' %}">
+          <img src="{% static 'assets/img/events/event1.png' %}" alt="Descripción" class="img-fluid rounded-3"/>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenido para dispositivos no móviles: mantener el contenido existente -->
+  <div class="d-none d-md-block">
+    <main class="px-3 main-cover mx-auto my-auto">
+        <h1>la Kultural</h1>
+        <p class="lead">Since 2016.</p>
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
+        </p>
+    </main>
+  </div>
+</div>
+
 {% endblock %}

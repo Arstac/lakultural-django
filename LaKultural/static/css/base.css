@@ -60,9 +60,23 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom-color: #fff;
 }
 
-.espaciador-nav {
-  height: 60px; /* Ajusta esto a la altura de tu navbar */
+.navbar {
+  transition: background-color 0.4s ease !important; /* Ajusta el tiempo si quieres que la transición sea más rápida o más lenta */
+  background-color: rgba(0, 0, 0, 0); /* Opacidad inicial */
 }
+
+.navbar-scrolling {
+  background-color: rgba(0, 0, 0, 0.3) !important; /* Opacidad final cuando se hace scroll */
+}
+
+.espaciador-nav {
+  height: 80px; /* Ajusta esto a la altura de tu navbar */
+}
+
+.masthead{
+  margin-top: 80px;
+}
+
 
 /*
 
@@ -201,11 +215,6 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Sombra más pronunciada */
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Transición suave para el zoom y la sombra */
   }
-.masthead{
-  margin-top: 60px;
-}
-
-
 
 /* ------------- */
 /* SONG SETTINGS */
