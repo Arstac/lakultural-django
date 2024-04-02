@@ -118,7 +118,12 @@ a, .btn {
     
 }
 
+.tarjeta-info {
+  background-color: rgba(120, 120, 120, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
 
+}
 
 .bd-placeholder-img {
     font-size: 1.125rem;
@@ -415,4 +420,43 @@ a, .btn {
   border: var(--bs-border-width) solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------- */
+/* PAGINA DEL EVENTO*/
+/* ------------- */
+/* SSECCIO EVENTOS RELACIONATS */
+/* Oculta la barra de desplazamiento pero permite el scroll */
+.row-scrollable {
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+}
+
+.row-scrollable.grabbing {
+  cursor: grabbing;
+}
+
+/* Oculta la barra de scroll en diferentes navegadores */
+.row-scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+.row-scrollable {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

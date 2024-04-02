@@ -10,6 +10,7 @@ def eventos(request):
 
 def evento(request, evento_id):
     evento = get_object_or_404(Evento, pk=evento_id)
-    contexto = {'evento':evento}
+    related_eventos = Evento.objects.all().order_by('fecha')
+    contexto = {'evento':evento, 'related_eventos':related_eventos}
 
     return render(request, 'eventos/evento.html', contexto)

@@ -1,40 +1,21 @@
 {% load static %}
 <h2 class="mb-4">Other events you may like</h2>
-<div class="row">
-    <div class="col-md-4 mb-3">
-        <div class="card">
-            <img class="card-img-top" src="{% static 'assets/img/events/event1.png' %}" alt="Fury Hard Techno Festival">
-            <div class="card-body">
-                <h5 class="card-title">Fury Hard Techno Festival III</h5>
-                <p class="card-text"><small>Sat, May 11 • 3:00 PM</small></p>
-                <p class="card-text"><small>Carrer de Barcelona, 2</small></p>
-                <p class="card-text">From €22.18</p>
-                <p class="card-text"><small>Fury</small></p>
-            </div>
+<div class="row flex-nowrap overflow-auto row-scrollable mb-5">
+  {% for evento in related_eventos %}
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card card-block h-100 mx-2"> <!-- Añadir un margen horizontal para espacio entre tarjetas -->
+      <img class="card-img-top" src="{{ evento.imagen.url }}" alt="{{ evento.nombre }}">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{ evento.nombre }}</h5>
+        <p class="card-text"><small>{{ evento.fecha }}</small></p>
+        <p class="card-text"><small>{{ evento.lugar }}</small></p>
+        <p class="card-text">{{ evento.nombre }}</p>
+        <p class="card-text"><small>{{ evento.nombre }}</small></p>
+        <div class="mt-auto">
+          <!-- Botones o enlaces aquí -->
         </div>
+      </div>
     </div>
-    <div class="col-md-4 mb-3">
-        <div class="card">
-            <img class="card-img-top" src="{% static 'assets/img/events/event1.png' %}" alt="HOPE Hola Beach Party">
-            <div class="card-body">
-                <h5 class="card-title">HOPE pres: Hola Beach Party with Richy Ahmed</h5>
-                <p class="card-text"><small>Sat, May 4 • 2:00 PM</small></p>
-                <p class="card-text"><small>Hola Club Sitges</small></p>
-                <p class="card-text">From €16.63</p>
-                <p class="card-text"><small>HOPE</small></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 mb-3">
-        <div class="card">
-            <img class="card-img-top" src="{% static 'assets/img/events/event1.png' %}" alt="Taller de Aromaterapia con The Blue Drop">
-            <div class="card-body">
-                <h5 class="card-title">Taller de Aromaterapia con The Blue Drop</h5>
-                <p class="card-text"><small>Sat, May 25 • 4:00 PM</small></p>
-                <p class="card-text"><small>Espacio Elsa</small></p>
-                <p class="card-text">From €5.00</p>
-                <p class="card-text"><small>Laura Fuentes</small></p>
-            </div>
-        </div>
-    </div>
+  </div>
+  {% endfor %}
 </div>

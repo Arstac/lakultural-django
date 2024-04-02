@@ -80,3 +80,39 @@ window.addEventListener('scroll', function() {
   
     navbar.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
   });
+
+
+
+//PAGINA DEL EVENTO -- EVENTOS RELACIONATS (PERMET ARRASTRAR I SCROLLEJAR DES DE QUALSEVOL PUNT DE)
+// Selector del contenedor que quieres que sea desplazable
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.row-scrollable');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+  
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('grabbing');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+  
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('grabbing');
+    });
+  
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('grabbing');
+    });
+  
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX); // Controla la velocidad del arrastre
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  });
