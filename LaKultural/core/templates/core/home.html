@@ -7,29 +7,36 @@
 <!-- 'justify-content-center' centra los elementos en el eje horizontal -->
 <!-- 'align-items-center' centra los elementos en el eje vertical -->
 <div class="container d-flex vh-100 justify-content-center align-items-center">
+  <div id="floating-vinyls">
+    <img src="{% static 'assets/img/vinyl.png' %}" alt="Vinyl" class="floating-vinyl"/>
+    <img src="{% static 'assets/img/vinyl.png' %}" alt="Vinyl" class="floating-vinyl"/>
+    <img src="{% static 'assets/img/vinyl.png' %}" alt="Vinyl" class="floating-vinyl"/>
+  </div>
   <div class="d-block d-md-none">
     <div class="row">
-      <!-- Cada imagen en una columna de 'col-6' para tener 2 imágenes por fila -->
-      <div class="col-6">
+      <!-- Aplicamos una clase personalizada para efectos de hover -->
+      <div class="col-6 thumbnail-hover">
         <a href="{% url 'tienda:tienda' %}">
-          <img src="{% static 'assets/img/events/event1.png' %}" alt="Descripción" class="img-fluid  rounded-3 mb-2"/>
+          <img src="{% static 'assets/img/links/tienda.png' %}" alt="Tienda" style="--animation-order:1;" class="img-fluid rounded-3 mb-2 thumbnail"/>
+          <div class="thumbnail-text">Tienda</div>
         </a>
       </div>
-      <div class="col-6">
+      <div class="col-6 thumbnail-hover">
         <a href="{% url 'musica:musica' %}">
-          <img src="{% static 'assets/img/events/event1.png' %}" alt="Descripción" class="img-fluid  rounded-3 mb-2"/>
+          <img src="{% static 'assets/img/links/musica.png' %}" alt="Música" style="--animation-order:2;" class="img-fluid rounded-3 mb-2 thumbnail"/>
+          <div class="thumbnail-text">Música</div>
         </a>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
+      <div class="col-6 thumbnail-hover">
         <a href="{% url 'eventos:eventos' %}">
-          <img src="{% static 'assets/img/events/event1.png' %}" alt="Descripción" class="img-fluid rounded-3"/>
+          <img src="{% static 'assets/img/links/eventos.png' %}" alt="Eventos" style="--animation-order:3;" class="img-fluid rounded-3 thumbnail"/>
+          <div class="thumbnail-text">Eventos</div>
         </a>
       </div>
-      <div class="col-6">
+      <div class="col-6 thumbnail-hover">
         <a href="{% url 'booking:booking' %}">
-          <img src="{% static 'assets/img/events/event1.png' %}" alt="Descripción" class="img-fluid rounded-3"/>
+          <img src="{% static 'assets/img/links/booking.png' %}" alt="Booking" style="--animation-order:4;" class="img-fluid rounded-3 thumbnail"/>
+          <div class="thumbnail-text">Booking</div>
         </a>
       </div>
     </div>

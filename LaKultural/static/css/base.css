@@ -2,6 +2,15 @@
  * Globals
  */
 
+ @font-face {
+  font-family: 'Eurostile';
+  src: url('/static/fonts/Eurostile-Bold-Oblique.woff') format('woff');
+  font-style: italic; /* Esto hará que el texto sea cursiva */
+  font-weight: bold; /* Esto hará que el texto sea negrita */
+
+  font-display: swap; /* Mejora el rendimiento de carga de la fuente */
+}
+
 
 /* Custom default button */
 .btn-light,
@@ -36,8 +45,9 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Eurostile', sans-serif;
   margin-bottom: 0.5em;
+
 }
 
 h1, .title {
@@ -60,22 +70,11 @@ a, .btn {
  */
 
 .nav-masthead .nav-link {
-  color: rgba(255, 255, 255, .5);
   border-bottom: .25rem solid transparent;
-}
-
-.nav-masthead .nav-link:hover,
-.nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
 }
 
 .nav-masthead .nav-link + .nav-link {
   margin-left: 1rem;
-}
-
-.nav-masthead .active {
-  color: #fff;
-  border-bottom-color: #fff;
 }
 
 .navbar {
@@ -110,6 +109,9 @@ a, .btn {
   padding: 0.5rem 1rem; /* Asegura un buen espaciado */
 }
 
+.nav-link {
+ color: white;
+}
 
 
 /*
@@ -121,6 +123,19 @@ a, .btn {
 @media (max-width:796px) {
 
     
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+/* Ajusta los estilos de responsividad según sea necesario */
+@media (max-width: 768px) {
+  .signup-section .col-md-8 {
+    width: 90%; /* Puede ajustar esto para cambiar el ancho en dispositivos más pequeños */
+  }
 }
 
 .tarjeta-info {
@@ -138,11 +153,7 @@ a, .btn {
     user-select: none;
   }
 
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
+
 
   .b-example-divider {
     width: 100%;
@@ -182,22 +193,6 @@ a, .btn {
     -webkit-overflow-scrolling: touch;
   }
 
-  .btn-bd-primary {
-    --bd-violet-bg: #712cf9;
-    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-    --bs-btn-font-weight: 600;
-    --bs-btn-color: var(--bs-white);
-    --bs-btn-bg: var(--bd-violet-bg);
-    --bs-btn-border-color: var(--bd-violet-bg);
-    --bs-btn-hover-color: var(--bs-white);
-    --bs-btn-hover-bg: #6528e0;
-    --bs-btn-hover-border-color: #6528e0;
-    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-    --bs-btn-active-color: var(--bs-btn-hover-color);
-    --bs-btn-active-bg: #5a23c8;
-    --bs-btn-active-border-color: #5a23c8;
-  }
 
   .bd-mode-toggle {
     z-index: 1500;
@@ -254,7 +249,11 @@ a, .btn {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Sombra más pronunciada */
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Transición suave para el zoom y la sombra */
   }
-
+  
+  .card-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Sombra más pronunciada */
+    transition: box-shadow 0.3s ease, filter 0.3s ease; /* Transición suave para la sombra */
+  }
 /* ------------- */
 /* SONG SETTINGS */
 /* ------------- */
@@ -324,13 +323,6 @@ a, .btn {
   visibility: hidden;
 }
 
-/* Responsive Adjustments for Display on Different Screen Sizes */
-@media (max-width: 768px) {
-  /* For smaller screens, you might want to adjust padding, font sizes, etc. */
-}
-
-/* Other specific stylings for your buttons and additional elements can be added here */
-
 /* Ensure the action buttons don't wrap or overflow */
 .btn {
   white-space: nowrap; /* Prevent wrapping of button contents */
@@ -391,12 +383,7 @@ a, .btn {
   font-size: 0.9rem; /* Un tamaño de fuente menor para el enlace a 'Sign in' */
 }
 
-/* Ajusta los estilos de responsividad según sea necesario */
-@media (max-width: 768px) {
-  .signup-section .col-md-8 {
-    width: 90%; /* Puede ajustar esto para cambiar el ancho en dispositivos más pequeños */
-  }
-}
+
 
 
 .marge-sup {
@@ -454,4 +441,30 @@ a, .btn {
   /*Blur es el desenfoque de la sombra.*/ 
   /*Spread es el tamaño de la expansión de la sombra.*/ 
   /*Color es el color de la sombra, donde puedes usar rgba para la transparencia.*/ 
+}
+
+
+/* PAGINA PRINCIPAL PER MOBILS */
+
+
+
+
+
+/* VINILS FLOTANTS */ 
+#floating-vinyls {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Esto asegura que los vinilos no interfieran con los clics en la página */
+  z-index: 10; /* Asegúrate de que este valor sea menor que otros elementos que deben estar por encima de los vinilos */
+}
+
+.floating-vinyl {
+  position: absolute;
+  width: 100px; /* Ajusta el tamaño como prefieras */
+  opacity: 0.7; /* Ajusta la opacidad para que no sea demasiado dominante */
+  transition: transform 0.2s ease-out;
+  will-change: transform;
 }
