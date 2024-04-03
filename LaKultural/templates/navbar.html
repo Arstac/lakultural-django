@@ -12,11 +12,13 @@
         <img src="{% static 'assets/img/logos/k_lakultural_lletres_blanc.svg' %}" alt="lakultulogo" height="30px" width="100%">
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body text-start">        
-        <form class="d-flex mt-3 mt-lg-0" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-        </form>
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+      <div class="offcanvas-body">        
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 text-start">
+          <li class="nav-item ms-auto"> <!-- ms-auto empujará el elemento completamente a la derecha -->
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+            </form>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'tienda:tienda' %}">Tienda</a>
           </li>
@@ -33,7 +35,7 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="{% static 'assets/img/icons/user.svg' %}" alt="userlogo" height="20px" width="20px">
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu dropdown-menu-end">
               {% if user.is_authenticated %}
                 <!-- Muestra si el usuario está autenticado -->
                 <li><a class="dropdown-item" href="{% url 'usuarios:ajustes' %}">Ajustes</a></li>
@@ -53,4 +55,3 @@
     </div>
   </div>
 </nav>
-<div class="wave"></div>

@@ -1,5 +1,5 @@
 {% load static %}
-<h2 class="mb-4">Other events you may like</h2>
+<h2 class="mb-4">Otros eventos de interés</h2>
 <div class="row flex-nowrap overflow-auto row-scrollable mb-5">
   {% for evento in related_eventos %}
   <div class="col-12 col-md-6 col-lg-4">
@@ -9,8 +9,6 @@
         <h5 class="card-title">{{ evento.nombre }}</h5>
         <p class="card-text"><small>{{ evento.fecha }}</small></p>
         <p class="card-text"><small>{{ evento.lugar }}</small></p>
-        <p class="card-text">{{ evento.nombre }}</p>
-        <p class="card-text"><small>{{ evento.nombre }}</small></p>
         <div class="mt-auto">
           <!-- Botones o enlaces aquí -->
         </div>

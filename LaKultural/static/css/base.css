@@ -17,6 +17,12 @@
  */
 
 
+ html, body {
+  height: 100vh; /* Esto hace que el body tenga el 100% de la altura del viewport */
+  margin: 0; /* Elimina cualquier margen predeterminado */
+  padding: 0; /* Elimina cualquier padding predeterminado */
+}
+
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -27,7 +33,6 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  min-height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -340,15 +345,9 @@ a, .btn {
 
 /* You can add hover effects or additional stylings below */
 
-
-
-
-
-
 /* ------------- */
 /* LOGIN I LOGOUT */
 /* ------------- */
-
 
 .signup-model .card {
   box-shadow: 0 5px 15px rgba(0,0,0,.3);
@@ -422,20 +421,6 @@ a, .btn {
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ------------- */
 /* PAGINA DEL EVENTO*/
 /* ------------- */
@@ -451,7 +436,7 @@ a, .btn {
   cursor: grabbing;
 }
 
-/* Oculta la barra de scroll en diferentes navegadores */
+/* Oculta la barra de scroll en diferentes navegadores COMPROVAR SI ES NECESARI, XK CREC Q ES POT ERLIINAT */
 .row-scrollable::-webkit-scrollbar {
   display: none;
 }
@@ -459,4 +444,14 @@ a, .btn {
 .row-scrollable {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+/* Imatge del evento */
+.img-evento{
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.35);/* X-offset Y-offset blur spread color */
+  /* X-offset y Y-offset determinan la posición horizontal y vertical de la sombra respecto a la imagen.*/ 
+  /*Blur es el desenfoque de la sombra.*/ 
+  /*Spread es el tamaño de la expansión de la sombra.*/ 
+  /*Color es el color de la sombra, donde puedes usar rgba para la transparencia.*/ 
 }

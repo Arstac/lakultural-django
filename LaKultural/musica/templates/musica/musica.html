@@ -17,28 +17,28 @@
     <!-- List items dynamically generated. -->
     <div class="row list-group-item align-items-center text-start">
       <!-- Album Image -->
-      <div class="col-3 col-md-1">
+      <div class="col-3 col-lg-1">
         <img src="{% static 'assets/img/events/event1.png' %}" class="img-fluid rounded-2" alt="Event">
       </div>
     
       <!-- Song title and artist name -->
-      <div class="col-7 col-md-3">
+      <div class="col-7 col-lg-3">
         <div class="fw-bold">{{ cancion.titulo }}</div>
         <div>{{ cancion.artista.nombre }}</div>
       </div>
     
       <!-- Album Name for non-mobile view -->
-      <div class="col-md-2 d-none d-md-block">
+      <div class="col-lg-2 d-none d-lg-block">
         Álbum
       </div>
     
       <!-- Duration for non-mobile view -->
-      <div class="col-md-2 d-none d-md-block">
+      <div class="col-lg-2 d-none d-lg-block">
         05:19
       </div>
     
       <!-- Action Buttons for non-mobile view -->
-      <div class="col-md-3 d-none d-md-flex justify-content-end">
+      <div class="col-lg-3 d-none d-lg-flex justify-content-end">
         <button class="btn">
           <img src="{% static 'assets/img/icons/like_0.svg' %}" class="song-icon" alt="Like">
         </button>
@@ -48,7 +48,7 @@
       </div>
 
       <!-- Menu button for mobile view -->
-      <div class="col-2 d-block d-md-none text-end">
+      <div class="col-2 d-block d-lg-none text-end">
         <button class="btn">
           <img src="{% static 'assets/img/icons/threedot_w.svg' %}" class="song-icon" alt="Menu">
         </button>
