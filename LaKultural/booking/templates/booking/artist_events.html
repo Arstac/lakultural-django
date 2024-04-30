@@ -1,7 +1,7 @@
 {% load static %}
-<h2 class="mb-4">Otros eventos de interés</h2>
+
 <div class="row flex-nowrap overflow-auto row-scrollable mb-5">
-  {% for evento in related_eventos %}
+  {% for evento in eventos_artista %}
   <a href="{% url 'eventos:evento' evento.id %}">
   <div class="col-12 col-md-6 col-lg-4">
     <div class="card card-background card-shadow bg-dark text-white h-100 border-0"> <!-- Añadir un margen horizontal para espacio entre tarjetas -->

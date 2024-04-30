@@ -16,7 +16,11 @@ def booking(request):
 def artista(request, artista_id):
     artista = get_object_or_404(Artista, pk=artista_id)
     canciones = Cancion.objects.filter(artista=artista)
+
+    eventos_del_artista = artista.eventos.all()
+
     contexto = {'artista':artista,
-                'canciones':canciones,}
+                'canciones':canciones,
+                'eventos_artista':eventos_del_artista}
 
     return render(request, 'booking/artista.html', contexto)

@@ -1,68 +1,69 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
 <!-- Masthead-->
 <header class="masthead">
     <div class="text-center">
+        <h1 class="section-heading text-uppercase">{{ artista.nombre }}</h1>
     </div>
 </header>
 
-<section class="page-section bg-black" id="portfolio">
-    <div class="container">
-
-        <div class="row">
-            <div class="col-6">
-                {% if artista.imagen %}
-                <img src="{{ artista.imagen.url }}" alt="{{ artista.nombre }}" class="img-fluid">
-                {% else %}
-                <p>No hay imagen disponible.</p>
-                {% endif %}
-            </div>
-            <div class="col-6">
-                <h2>{{ artista.nombre}}</h2>
-                <p>{{ artista.contacto}}</p>
-                <p>CATEGORIES</p>
-            </div>
+<div class="container py-5 text-start">
+    <div class="row mb-5">
+      <div class="col-lg-6 d-flex flex-column justify-content-center">
+        <h2>{{artista.nombre}}</h2>
+        <p>{{artista.contacto}}</p>
+        <a href="#" class="btn btn-light text-uppercase">Contactar</a>
+      </div>
+      <div class="col-lg-6">
+        <div class="event-card p-3">
+          {% if artista.imagen %}
+          <img src="{{ artista.imagen.url }}" alt="{{ artista.nombre }}" class="img-fluid">
+          {% else %}
+          <p>No hay imagen disponible.</p>
+          {% endif %}
         </div>
-
-        <div class="row">
-            <div class="col-6">
-                <p>{{ artista.descripcion }}</p>
-            </div>
-            <div class="col-6">
-                <p>Events proxims</p>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-12">
-                <table class="table table-dark table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Titulo</th>
-                        <th scope="col">Artista</th>
-                        <th scope="col">Reproducir</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        {% for cancion in canciones %}
-                    <tr>
-                        <th scope="row">{{ cancion.id }}</th>
-                        <td>{{cancion.titulo}}</td>
-                        <td><a href="{% url 'booking:artista' cancion.artista.id %}" >{{cancion.artista.nombre}}</a></td>
-                        <td> <audio controls>
-                            <source src="{{ cancion.archivo_audio.url }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio></td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+      </div>
     </div>
-</section>
-        
+    
+    <div class="col tarjeta-info mb-5">
+      <!-- Descripción -->
+      <div class="row">
+          <div class="col">
+          <h3 class="mb-3">DESCRIPCIÓN</h3>
+          <p>{{ artista.descripcion }}</p>
+          </div>
+      </div>
+    
+      <!-- Artistas -->
+      <div class="row mt-4">
+          <div class="col">
+          <h3>LOREM</h3>
+          <ul>
+              <li>Amygdala</li>
+          </ul>
+          </div>
+      </div>
+  
+      <!-- Información Adicional -->
+      <div class="row mt-4">
+        <div class="col">
+          <h3>INFORMACIÓN ADICIONAL</h3>
+          <p>No se pueden realizar cambios ni devoluciones de entradas ya adquiridas. Únicamente se reembolsará el importe de las entradas en caso de incidencia técnica o de cancelación del evento por parte de la organización. Las cancelaciones no incluyen casos de fuerza mayor.</p>
+        </div>
+      </div>
+    </div>
+  
+    <h3 class="mb-3">EVENTOS PRÓXIMOS</h3>
+    <!-- Inclueix events relacions i FAQS-->
+  {% include 'booking/artist_events.html' %}
+
+    <h3 class="mb-3">MÚSICA</h3>
+      <!-- Inclueix events relacions i FAQS-->
+    {% include 'booking/artist_music.html' %}
+
+     <!--{% include 'faqs.html' %}-->
+
+</div>
 {% endblock %}
+

@@ -6,7 +6,6 @@
 <header class="masthead">
     <div class="text-center">
         <h1 class="section-heading text-uppercase">BOOKING</h1>
-        <h6 class="section-subheading">Conoce a nuestros artistas.</h6>
     </div>
 </header>
 
@@ -15,6 +14,7 @@
         <!-- Event Card -->
         {% for artista in artistas %}
         <div class="col">
+            <a href="{% url 'booking:artista' artista.id %}">
             <div class="card card-movement bg-dark text-white h-100 border-0 card-background">
                 {% if artista.imagen %}
                 <img src="{{ artista.imagen.url }}" alt="{{ artista.nombre }}" class="card-img-top">
@@ -26,6 +26,7 @@
                     <p class="card-text">{{ artista.contacto }}</p>
                 </div>
             </div>
+            </a>
         </div>
         {% endfor%}
     </div>

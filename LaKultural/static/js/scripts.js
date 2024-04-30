@@ -184,3 +184,30 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   });
+
+
+
+//BUSCADOR
+$(document).ready(function() {
+  $('#searchInput').on('keyup', function() {
+      var query = $(this).val();
+      $.ajax({
+          url: '/core/buscar/',  // Actualizado para incluir el namespace
+          data: {
+              'term': query
+          },
+          dataType: 'json',
+          success: function(data) {
+              let resultList = $('#resultList');
+              resultList.empty();
+              if (data.list.length) {
+                  data.list.forEach(function(item) {
+                      resultList.append($('<li>').text(item));
+                  });
+              } else {
+                  resultList.append($('<li>').text('No se encontraron resultados.'));
+              }
+          }
+      });
+  });
+});
