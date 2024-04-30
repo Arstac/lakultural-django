@@ -14,8 +14,7 @@
         <h2>{{producto.nombre}}</h2>
         <p>{{producto.descripcion}}</p>
         <p>{{producto.precio}}</p>
-        <a href="#" class="btn btn-light text-uppercase">Comprar</a>
-      </div>
+        <a href="{% url 'carrito:add_producto' producto_id=producto.id %}" class="btn btn-light text-uppercase">Añadir al carrito</a>      </div>
       <div class="col-lg-6">
         <div class="event-card p-3">
           {% if producto.imagen %}
@@ -40,6 +39,27 @@
   <div class="row mt-4">
     <div class="col">
       <h3>INFORMACIÓN ADICIONAL</h3>
+      <!-- Selección de modelo y talla. Deberá aparecer una lista con cada talla y otra con cada modelo y poder seleccionar la combinacion adecuada. Incluir un boton para abrir una pagina donde hay infomracion para seleccion talla adecuada -->
+      <p>Selecciona tu talla:</p>
+      <select name="talla" id="talla">
+        <option value="s">S</option>
+        <option value="m">M</option>
+        <option value="l">L</option>
+        <option value="xl">XL</option>
+      </select>
+      <p>Selecciona tu modelo:</p>
+      <select name="modelo" id="modelo">
+        <option value="modelo1">Modelo 1</option>
+        <option value="modelo2">Modelo 2</option>
+        <option value="modelo3">Modelo 3</option>
+        <option value="modelo4">Modelo 4</option>
+      </select>
+      <a href="{% url 'tienda:guia_tallas' %}" class="btn btn-light text-uppercase">Guía de tallas</a>
+    </div>
+  </div>
+  <!-- Política de devoluciones -->
+  <div class="row mt-4">
+    <div class="col">
       <p>No se pueden realizar cambios ni devoluciones de entradas ya adquiridas. Únicamente se reembolsará el importe de las entradas en caso de incidencia técnica o de cancelación del evento por parte de la organización. Las cancelaciones no incluyen casos de fuerza mayor.</p>
     </div>
   </div>

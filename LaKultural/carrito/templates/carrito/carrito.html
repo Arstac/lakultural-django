@@ -2,6 +2,40 @@
 {% load static %}
 {% block content %}
 
-<p>Epa gente</p>
+<!--def carrito(request):
+    carrito = get_carrito_or_create(request)
+    contexto = {'carrito': carrito}
+    return render(request, 'carrito/carrito.html', contexto)
+
+def add_producto(request, producto_id):
+    carrito = get_carrito_or_create(request)
+    producto = get_object_or_404(Producto, id=producto_id)
+
+    carrito.productos.add(producto)
+    return render(request, 'carrito/carrito.html', {'carrito': carrito})
+
+def remove_producto(request, producto_id):
+    carrito = get_carrito_or_create(request)
+    producto = Producto.objects.get(id=producto_id)
+    
+    carrito.productos.remove(producto)
+    return render(request, 'carrito/carrito.html', {'carrito': carrito})
+'''
+-->
+
+<div class="container py-5 text-start">
+    <div class="row mb-5">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h2>Carrito de Compras</h2>
+            <p>Productos en tu carrito:</p>
+            <ul>
+                {% for producto in carrito.productos.all %}
+                    <li>{{ producto.nombre }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}

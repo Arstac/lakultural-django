@@ -40,6 +40,7 @@
             <ul class="dropdown-menu dropdown-menu-end">
               {% if user.is_authenticated %}
                 <!-- Muestra si el usuario está autenticado -->
+                <li><a class="dropdown-item" href="{% url 'carrito:carrito' %}">Carrito</a></li>
                 <li><a class="dropdown-item" href="{% url 'usuarios:ajustes' %}">Ajustes</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="{% url 'usuarios:logout' %}">Cerrar Sesión</a></li>
