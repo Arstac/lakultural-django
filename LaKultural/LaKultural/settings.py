@@ -14,7 +14,8 @@ SECRET_KEY = "django-insecure-pbym&s()se0#%+pw!c7n)ngsepx=re$^jg-(pte+l6v%c96r+)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# SECURITY WARNING: update this when you have the production host
+ALLOWED_HOSTS = ['192.168.68.120', '127.0.0.1']
 
 
 
@@ -72,12 +73,21 @@ WSGI_APPLICATION = "LaKultural.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# ORIGINAL
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
 
 
 # Password validation

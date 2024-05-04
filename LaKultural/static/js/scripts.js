@@ -186,28 +186,24 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
+// Obtener el modal y el enlace de cerrar
+var modal = document.getElementById('modalTallas');
+var abrirModal = document.getElementById('abrirModal');
+var cerrarModal = document.getElementsByClassName('close')[0];
 
-//BUSCADOR
-$(document).ready(function() {
-  $('#searchInput').on('keyup', function() {
-      var query = $(this).val();
-      $.ajax({
-          url: '/core/buscar/',  // Actualizado para incluir el namespace
-          data: {
-              'term': query
-          },
-          dataType: 'json',
-          success: function(data) {
-              let resultList = $('#resultList');
-              resultList.empty();
-              if (data.list.length) {
-                  data.list.forEach(function(item) {
-                      resultList.append($('<li>').text(item));
-                  });
-              } else {
-                  resultList.append($('<li>').text('No se encontraron resultados.'));
-              }
-          }
-      });
-  });
-});
+// Abrir el modal cuando se haga clic en el enlace
+abrirModal.onclick = function() {
+  modal.style.display = 'block';
+}
+
+// Cerrar el modal cuando se haga clic en el enlace de cerrar
+cerrarModal.onclick = function() {
+  modal.style.display = 'none';
+}
+
+// Cerrar el modal cuando se haga clic fuera de él
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+}

@@ -55,7 +55,7 @@ h1, .title {
   font-weight: 900;
 }
 
-/* O puedes usarlo para los enlaces o botones para llamar la atención */
+/* elimina la decoracion de los enlaces */
 a, .btn {
   text-decoration: none; /* Opcional: si no quieres subrayados en los enlaces */
 }
@@ -65,78 +65,6 @@ a, .btn {
 }
 
 
-/*
- * Header
- */
-
-.nav-masthead .nav-link {
-  border-bottom: .25rem solid transparent;
-}
-
-.nav-masthead .nav-link + .nav-link {
-  margin-left: 1rem;
-}
-
-.navbar {
-  transition: background-color 0.4s ease !important; /* Ajusta el tiempo si quieres que la transición sea más rápida o más lenta */
-  background-color: rgba(0, 0, 0, 0); /* Opacidad inicial */
-}
-
-.navbar-scrolling {
-  background-color: rgba(0, 0, 0, 0.3) !important; /* Opacidad final cuando se hace scroll */
-}
-
-.espaciador-nav {
-  height: 80px; /* Ajusta esto a la altura de tu navbar */
-}
-
-.masthead{
-  margin-top: 80px;
-}
-
-
-/*retocs finals del navbar */
-.offcanvas {
-  background-color: rgba(33, 37, 41, 0.95) !important; /* Un fondo oscuro con un poco de transparencia */
-}
-.navbar-nav .nav-link {
-  transition: color 0.3s ease-in-out; /*transicio del hover dels items del menu */
-}
-.navbar-nav .nav-link:hover {
-  color: #bdf005; /* Puedes usar el color neón sugerido anteriormente para hover */
-}
-.navbar-nav .nav-link {
-  padding: 0.5rem 1rem; /* Asegura un buen espaciado */
-}
-
-.nav-link {
- color: white;
-}
-
-
-/*
-
- * MEDIA 
-
-*/
-
-@media (max-width:796px) {
-
-    
-}
-
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
-
-/* Ajusta los estilos de responsividad según sea necesario */
-@media (max-width: 768px) {
-  .signup-section .col-md-8 {
-    width: 90%; /* Puede ajustar esto para cambiar el ancho en dispositivos más pequeños */
-  }
-}
 
 .tarjeta-info {
   background-color: rgba(120, 120, 120, 0.1);
@@ -175,25 +103,6 @@ a, .btn {
     fill: currentColor;
   }
 
-  .nav-scroller {
-    position: relative;
-    z-index: 2;
-    height: 2.75rem;
-    overflow-y: hidden;
-  }
-
-  .nav-scroller .nav {
-    display: flex;
-    flex-wrap: nowrap;
-    padding-bottom: 1rem;
-    margin-top: -1px;
-    overflow-x: auto;
-    text-align: center;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-  }
-
-
   .bd-mode-toggle {
     z-index: 1500;
   }
@@ -207,250 +116,97 @@ a, .btn {
 /* LINK SETTINGS */
 /* ------------- */
 
-  .artista-song a {
-      color: rgb(190, 190, 190); /* Cambia 'black' por el color que prefieras */
-      text-decoration: none; /* Opcional: elimina el subrayado del enlace */
-  }
-  
-  /* Cambia el color de los enlaces al pasar el mouse */
-  .artista-song a:hover {
-      color: rgb(255, 255, 255); /* Cambia 'grey' por el color que prefieras para el hover */
-  }
+.artista-song a {
+    color: rgb(190, 190, 190); /* Cambia el color de los enlaces */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
 
-  /* Cambia el color de los enlaces visitados */
-  .artista-song a:visited {
-      color: rgb(190, 190, 190); /* Cambia 'purple' por el color que prefieras para enlaces visitados */
-  }
+/* Cambia el color de los enlaces al pasar el mouse */
+.artista-song a:hover {
+    color: rgb(255, 255, 255); /* Cambia 'grey' por el color que prefieras para el hover */
+}
+
+/* Cambia el color de los enlaces visitados */
+.artista-song a:visited {
+    color: rgb(190, 190, 190); /* Cambia el color para enlaces visitados */
+}
 
 /* ------------- */
 /* CARD SETTINGS */
 /* ------------- */
+/* Fa referència a les targetes on actualment s'utilitzen a events, musica, tenda i artistes.
 
 /*Li donc 30% de opacitat a les tarjetes dels artistes */
-  .card-background {
-    background-color: rgba(0, 0, 0, 0.3) !important;
-  }
+.card-background {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
 
-  .card-login-background {
-    background-color: rgba(120, 120, 120, 0.1) !important;
-  }
+.card-login-background {
+  background-color: rgba(120, 120, 120, 0.1) !important;
+}
 
 /* Serveix per a que la imatge estigui en blanc i negre i al passar el ratoli torni el color */
-  .card-img-top {
-    filter: grayscale(100%); /* Convertir imagen a blanco y negro */
-    transition: filter 0.5s ease; /* Efecto de transición suave */
-  }
-  .card-img-top:hover {
-    filter: grayscale(0); /* Restaurar color al pasar el ratón por encima */
-  }
-
-  .card-movement:hover {
-    transform: scale(1.05); /* Efecto de zoom */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Sombra más pronunciada */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Transición suave para el zoom y la sombra */
-  }
-  
-  .card-shadow:hover {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Sombra más pronunciada */
-    transition: box-shadow 0.3s ease, filter 0.3s ease; /* Transición suave para la sombra */
-  }
-/* ------------- */
-/* SONG SETTINGS */
-/* ------------- */
-
-
-/* General List Group Styling */
-.list-group-item {
-  border: none;
-  padding: 10px 15px;
-  display: flex;
-  background-color: transparent;
-  border-radius: .5rem !important;
-  margin-bottom: 0.5rem;
-  color: white !important;
-
+.card-img-top {
+  filter: grayscale(100%); /* Convertir imagen a blanco y negro */
+  transition: filter 0.5s ease; /* Efecto de transición suave */
+}
+.card-img-top:hover {
+  filter: grayscale(0); /* Restaurar color al pasar el ratón por encima */
 }
 
-.list-group-item:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.card-movement:hover {
+  transform: scale(1.05); /* Efecto de zoom */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Sombra más pronunciada */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Transición suave para el zoom y la sombra */
 }
 
-/* Music Image Styling */
-.music-img {
-  object-fit: cover; /* Ensure the image covers the area */
-  width: 55px; /* Set a fixed width */
-  height: 55px; /* Set a fixed height to maintain aspect ratio */
-  margin-right: 10px; /* Add spacing to the right of the image */
+.card-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Sombra más pronunciada */
+  transition: box-shadow 0.3s ease, filter 0.3s ease; /* Transición suave para la sombra */
 }
 
-/* Song Icon Styling */
-.song-icon {
-  height: 18px; /* Set the height for the icon */
-  width: 18px; /* Set the width to maintain aspect ratio */
-}
+/* A REVISAR: */
 
-/* Number Icon Wrapper Styling */
-.icon-number-wrapper {
-  position: relative;
-  padding: 0 8px;
-  display: flex; /* Use flexbox for alignment */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-}
-
-/* Styling for Like Number and Like Icon */
-.like-number, .like-icon {
-  position: absolute;
-  color: white;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.like-icon {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.icon-number-wrapper:hover .like-icon {
-  opacity: 1;
-  visibility: visible;
-}
-
-.icon-number-wrapper:hover .like-number {
-  opacity: 0;
-  visibility: hidden;
-}
-
-/* Ensure the action buttons don't wrap or overflow */
-.btn {
-  white-space: nowrap; /* Prevent wrapping of button contents */
-  overflow: hidden; /* Prevent overflow */
-  text-overflow: ellipsis; /* Add ellipsis to overflowed text */
-}
-
-/* This ensures that the '...' button for small screens is visible */
-.d-block.d-md-none .btn {
-  padding: 0; /* Adjust padding for small screen buttons if needed */
-}
-
-/* You can add hover effects or additional stylings below */
-
-/* ------------- */
-/* LOGIN I LOGOUT */
-/* ------------- */
-
-.signup-model .card {
-  box-shadow: 0 5px 15px rgba(0,0,0,.3);
-}
-
-.signup-model .btn-block {
-  padding: 0.375rem 0.75rem;
-  margin-top: 1rem;
-}
-
-.signup-model .form-control {
-  border-radius: 0.25rem;
-}
-
-.signup-model form {
-  margin-top: 2rem;
-}
-
-
-.signup-section .form-text {
-  display: block; /* O usa 'inline' si prefieres que esté al lado del campo */
-  margin-top: -0.5rem; /* Ajusta según el espaciado deseado */
-  margin-bottom: 1rem; /* Ajusta según el espaciado deseado */
-  font-size: 0.9rem; /* Un tamaño más pequeño para la ayuda y los mensajes de error */
-  color: #6c757d; /* Un color más claro para la ayuda y los mensajes de error */
-}
-
-.signup-section .form-group label {
-  font-weight: 600; /* Opcional: hace que la etiqueta del campo sea más prominente */
-  margin-bottom: 0.5rem; /* Asegúrate de que haya espacio entre la etiqueta y el campo */
-}
-
-.signup-section .btn-primary {
-  width: 100%; /* Hace que el botón se expanda para llenar el ancho del contenedor */
-  /* Asegúrate de que el color del botón se destaque y coincida con la paleta de colores de tu sitio */
-}
-
-.signup-section .text-muted {
-  display: block; /* Opcional: para cambiar la visualización del enlace */
-  margin-top: .5rem; /* Espacio antes del enlace de cambio al formulario de inicio de sesión */
-  font-size: 0.9rem; /* Un tamaño de fuente menor para el enlace a 'Sign in' */
-}
-
-
-
-
-.marge-sup {
-  margin-top: 120px;
-}
-
-.login-signup-control input {
-  display: block;
+/* ----------------- */
+/*  ESTILS DE MODAL  */
+/* ----------------- */
+.modal {
+  display: none; /* Ocultar el modal por defecto */
+  position: fixed; /* Posición fija */
+  z-index: 1; /* Por encima de todo */
+  left: 0;
+  top: 0;
   width: 100%;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--bs-body-color);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: var(--bs-body-bg);
-  background-clip: padding-box;
-  border: var(--bs-border-width) solid var(--bs-border-color);
-  border-radius: var(--bs-border-radius);
-  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  height: 100%;
+  overflow: auto; /* Permitir desplazamiento */
+  background-color: rgba(0,0,0,0.4); /* Fondo oscuro */
 }
 
-/* ------------- */
-/* PAGINA DEL EVENTO*/
-/* ------------- */
-/* SSECCIO EVENTOS RELACIONATS */
-/* Oculta la barra de desplazamiento pero permite el scroll */
-.row-scrollable {
-  overflow-x: auto;
-  overflow-y: hidden;
-  cursor: grab;
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
 }
 
-.row-scrollable.grabbing {
-  cursor: grabbing;
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
-/* Oculta la barra de scroll en diferentes navegadores COMPROVAR SI ES NECESARI, XK CREC Q ES POT ERLIINAT */
-.row-scrollable::-webkit-scrollbar {
-  display: none;
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.row-scrollable {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-/* Imatge del evento */
-.img-evento{
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.35);/* X-offset Y-offset blur spread color */
-  /* X-offset y Y-offset determinan la posición horizontal y vertical de la sombra respecto a la imagen.*/ 
-  /*Blur es el desenfoque de la sombra.*/ 
-  /*Spread es el tamaño de la expansión de la sombra.*/ 
-  /*Color es el color de la sombra, donde puedes usar rgba para la transparencia.*/ 
-}
-
-
-/* PAGINA PRINCIPAL PER MOBILS */
-
-
-
-
-
-/* VINILS FLOTANTS */ 
+/* ----------------- */
+/*  VINILS FLOTANTS  */
+/* ----------------- */
 #floating-vinyls {
   position: fixed;
   left: 0;
@@ -467,4 +223,21 @@ a, .btn {
   opacity: 0.7; /* Ajusta la opacidad para que no sea demasiado dominante */
   transition: transform 0.2s ease-out;
   will-change: transform;
+}
+
+/* ------------- */
+/*     MEDIA     */
+/* ------------- */
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+/* Ajusta los estilos de responsividad según sea necesario */
+@media (max-width: 768px) {
+  .signup-section .col-md-8 {
+    width: 90%; /* Puede ajustar esto para cambiar el ancho en dispositivos más pequeños */
+  }
 }
