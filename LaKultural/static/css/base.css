@@ -121,6 +121,7 @@ a, .btn {
   background-color: rgba(120, 120, 120, 0.1);
   border-radius: 1rem;
   padding: 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 
 }
 
@@ -174,7 +175,9 @@ a, .btn {
   overflow: auto; /* Permitir desplazamiento */
   background-color: rgba(0,0,0,0.4); /* Fondo oscuro */
 }
-
+.icon-menu{
+  height: 40px;
+}
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
@@ -234,3 +237,6 @@ a, .btn {
     width: 90%; /* Puede ajustar esto para cambiar el ancho en dispositivos más pequeños */
   }
 }
+
+
+

@@ -2,6 +2,12 @@
 {% load static %}
 {% block content %}
 
+<!-- Masthead-->
+<header class="masthead">
+    <div class="text-center">
+        <h1 class="section-heading text-uppercase">CARRITO</h1>
+    </div>
+</header>
 <!--def carrito(request):
     carrito = get_carrito_or_create(request)
     contexto = {'carrito': carrito}
@@ -23,18 +29,131 @@ def remove_producto(request, producto_id):
 '''
 -->
 
-<div class="container py-5 text-start">
-    <div class="row mb-5">
-        <div class="col-lg-6 d-flex flex-column justify-content-center">
-            <h2>Carrito de Compras</h2>
-            <p>Productos en tu carrito:</p>
-            <ul>
-                {% for producto in carrito.productos.all %}
-                    <li>{{ producto.nombre }}</li>
+<div class="container">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <span class="pull-right">(<strong>5</strong>) items</span>
+                    <h5>Items in your cart</h5>
+                </div>
+                {% for item in items %}
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table shoping-cart-table">
+                            <tbody>
+                            <tr>
+                                <td width="90">
+                                    <div class="cart-product-imitation">
+                                    </div>
+                                </td>
+                                <td class="desc">
+                                    <h3>
+                                    <a href="#" class="text-navy">
+                                        {{ item.producto.nombre }}
+                                    </a>
+                                    </h3>
+                                    <p class="small">
+                                        {{ item.producto.descripcion }}
+                                    </p>
+                                    <dl class="small m-b-none">
+                                        <dt>Categoría</dt>
+                                        <dd>{{ item.producto.categoria.nombre }}</dd>
+                                    </dl>
+                                    <div class="m-t-sm">
+                                        <a href="{% url 'carrito:quitar_producto' item.id %}" class="text-muted"><i class="fa fa-trash"></i> Remove item</a>
+                                    </div>
+                                </td>
+                                <td>
+                                    {% if item.producto.descuento_activo %}
+                                    {{ item.producto.precio_descuento }} €
+                                    <s class="small text-muted">{{ item.producto.precio }} €</s>
+                                    {% else %}
+                                    {{ item.producto.precio }} €
+                                    {% endif %}
+                                </td>
+                                <td width="65">
+                                    <input type="number" class="form-control w-auto quantity-input" data-product-id="{{ item.producto.id }}" value="{{ item.cantidad }}" name="cantidad" min="1" max="100" data-item-id="{{ item.id }}">
+                                </td>
+                                <td>
+                                    <h4 class="subtotal" data-item-id="{{ item.id }}">
+                                        {{ item.subtotal }} €
+                                    </h4>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                 {% endfor %}
-            </ul>
+                <div class="ibox-content">
+                    <a href="{% url 'tienda:tienda'  %}" class="btn btn-white"><i class="fa fa-arrow-left"></i> Seguir comprando</a>
+                    <a href="{% url 'carrito:checkout' %}" class="btn btn-primary pull-right"><i class="fa fa-shopping-cart"></i> Checkout</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Resumen del pedido</h5>
+                </div>
+                <div class="ibox-content">
+                    <span>
+                        Total
+                    </span>
+                    <h2 class="font-bold total-carrito">
+                        {{ carrito.total_carrito }} 
+                    </h2>
+                    <hr>
+                    <span class="text-muted small">
+                        *Los envíos superiores a 40€ son gratuitos
+                    </span>
+                    <div class="m-t-sm">
+                        <div class="btn-group">
+                        <a href="{% url 'carrito:checkout' %}" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Continuar</a>
+                        <a href="{% url 'tienda:tienda'  %}" class="btn btn-white btn-sm"> Cancelar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Soporte</h5>
+                </div>
+                <div class="ibox-content text-center">
+                    <h3><i class="fa fa-phone"></i> 608 02 03 04</h3>
+                    <span class="small">
+                        En caso de tener algun problema durante la compra no dude contactar con nosotros.
+                    </span>
+                </div>
+            </div>
+
+            <div class="ibox">
+                <div class="ibox-content">
+                    <p class="font-bold">
+                    Otros productos que te pueden interesar
+                    </p>
+                    <hr>
+                    {% for producto in productos %}
+                    <div>
+                        <a href="#" class="product-name"> {{ producto.nombre }}</a>
+                        <div class="small m-t-xs">
+                            {{ producto.descripcion}}
+                        </div>
+                        <div class="m-t text-righ">
+
+                            <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <hr>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 </div>
 
 

@@ -8,7 +8,6 @@
 // 
 
 window.addEventListener('DOMContentLoaded', event => {
-
     // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
@@ -54,6 +53,7 @@ window.addEventListener('DOMContentLoaded', event => {
 });
 
 
+
 function preparePlayer(songId, audioUrl, title, artist, imageUrl) {
     // Configura la información de la canción en el reproductor fijo
     document.getElementById('songTitle').innerText = title;
@@ -69,6 +69,7 @@ function preparePlayer(songId, audioUrl, title, artist, imageUrl) {
 }
 
 
+
 //Regula la opacitat del navbar
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar'); // Cambia a tu selector de navbar específico
@@ -80,6 +81,7 @@ window.addEventListener('scroll', function() {
   
     navbar.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
   });
+
 
 
 
@@ -186,43 +188,51 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-// Obtener el modal y el enlace de cerrar
-var modal = document.getElementById('modalTallas');
-var abrirModal = document.getElementById('abrirModal');
-var cerrarModal = document.getElementsByClassName('close')[0];
+//OBRIR EL MODAL DE TALLES EN EL PRODUCTE
+document.addEventListener('DOMContentLoaded', function() {
+  var modal = document.getElementById('modalTallas'); // Asegúrate de que el ID corresponde al de tu modal
+  var btn = document.getElementById('abrirModal'); // El botón que abre el modal
+  var span = document.querySelector('.close'); // El botón o elemento que cierra el modal
 
-// Abrir el modal cuando se haga clic en el enlace
-abrirModal.onclick = function() {
-  modal.style.display = 'block';
-}
-
-// Cerrar el modal cuando se haga clic en el enlace de cerrar
-cerrarModal.onclick = function() {
-  modal.style.display = 'none';
-}
-
-// Cerrar el modal cuando se haga clic fuera de él
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = 'none';
+  // Evento para abrir el modal
+  btn.onclick = function() {
+      modal.style.display = "block";
   }
-}
+
+  // Evento para cerrar el modal al hacer clic en el botón de cerrar
+  span.onclick = function() {
+      modal.style.display = "none";
+  }
+
+  // Evento para cerrar el modal al hacer clic fuera de él
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+});
 
 
-//CAROUSEL/
-// si vull fer servir aixo, hauria de posar : <!-- Inclusión de jQuery -->
-//<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-//adalt de tot
-//function setActive(index) {
-//  $('#carouselExample .carousel-item').removeClass('active');
-//  $('#carouselExample .carousel-item').eq(index).addClass('active');
-//}
-
-
-function setActive(index) {
-  var items = document.querySelectorAll('#carouselExample .carousel-item');
-  items.forEach(function(item) {
-      item.classList.remove('active');
+//ACTUALITZAR SUBTOTAL DEL CARRITO
+document.addEventListener('DOMContentLoaded', function () {
+  const quantityInputs = document.querySelectorAll('.quantity-input');
+  
+  quantityInputs.forEach(input => {
+      input.addEventListener('change', function () {
+          const itemId = this.getAttribute('data-item-id');
+          const productId = this.getAttribute('data-product-id');
+          const quantity = this.value;
+          updateSubtotal(itemId, productId, quantity);
+      });
   });
-  items[index].classList.add('active');
-}
+  
+  function updateSubtotal(itemId, productId, quantity) {
+      fetch(`/carrito/update/${itemId}/${productId}/${quantity}/`)
+          .then(response => response.json())
+          .then(data => {
+              document.querySelector(`.subtotal[data-item-id="${itemId}"]`).textContent = `${data.subtotal} €`;
+              document.querySelector('.total-carrito').textContent = `${data.total_carrito} €`;
+          })
+          .catch(error => console.error('Error:', error));
+  }
+});
