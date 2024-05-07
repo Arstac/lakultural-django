@@ -12,21 +12,7 @@
 }
 
 
-/* Custom default button */
-.btn-light,
-.btn-light:hover,
-.btn-light:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-}
-
-
-/*
- * Base structure
- */
-
-
- html, body {
+html, body {
   height: 100vh; /* Esto hace que el body tenga el 100% de la altura del viewport */
   margin: 0; /* Elimina cualquier margen predeterminado */
   padding: 0; /* Elimina cualquier padding predeterminado */
@@ -63,54 +49,6 @@ a, .btn {
 .main-cover {
   max-width: 60em;
 }
-
-
-
-.tarjeta-info {
-  background-color: rgba(120, 120, 120, 0.1);
-  border-radius: 1rem;
-  padding: 2rem;
-
-}
-
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-
-
-
-  .b-example-divider {
-    width: 100%;
-    height: 3rem;
-    background-color: rgba(0, 0, 0, .1);
-    border: solid rgba(0, 0, 0, .15);
-    border-width: 1px 0;
-    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-  }
-
-  .b-example-vr {
-    flex-shrink: 0;
-    width: 1.5rem;
-    height: 100vh;
-  }
-
-  .bi {
-    vertical-align: -.125em;
-    fill: currentColor;
-  }
-
-  .bd-mode-toggle {
-    z-index: 1500;
-  }
-
-  .bd-mode-toggle .dropdown-menu .active .bi {
-    display: block !important;
-  }
-
 
 /* ------------- */
 /* LINK SETTINGS */
@@ -166,6 +104,61 @@ a, .btn {
 }
 
 /* A REVISAR: */
+
+/* ------------- */
+/*     VARIS     */
+/* ------------- */
+
+/* Ajuste de la propiedad btn-light de los botones */
+.btn-light,
+.btn-light:hover,
+.btn-light:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+}
+
+.tarjeta-info {
+  background-color: rgba(120, 120, 120, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.b-example-divider {
+  width: 100%;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+.bd-mode-toggle {
+  z-index: 1500;
+}
+
+.bd-mode-toggle .dropdown-menu .active .bi {
+  display: block !important;
+}
 
 /* ----------------- */
 /*  ESTILS DE MODAL  */

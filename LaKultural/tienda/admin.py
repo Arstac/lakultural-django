@@ -1,5 +1,15 @@
 from django.contrib import admin
-from .models import Producto, CategoriaArticulo
+from django.db import models
+from .models import Producto, CategoriaArticulo, ImagenProducto
 
-admin.site.register(Producto)
+class ImagenProductoInline(admin.TabularInline):
+    model = ImagenProducto
+    extra = 1  # Número de formas extras mostradas
+
+class ProductoAdmin(admin.ModelAdmin):
+    inlines = [
+        ImagenProductoInline,
+    ]
+
+admin.site.register(Producto, ProductoAdmin)
 admin.site.register(CategoriaArticulo)

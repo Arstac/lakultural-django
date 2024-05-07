@@ -207,3 +207,22 @@ window.onclick = function(event) {
     modal.style.display = 'none';
   }
 }
+
+
+//CAROUSEL/
+// si vull fer servir aixo, hauria de posar : <!-- Inclusión de jQuery -->
+//<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+//adalt de tot
+//function setActive(index) {
+//  $('#carouselExample .carousel-item').removeClass('active');
+//  $('#carouselExample .carousel-item').eq(index).addClass('active');
+//}
+
+
+function setActive(index) {
+  var items = document.querySelectorAll('#carouselExample .carousel-item');
+  items.forEach(function(item) {
+      item.classList.remove('active');
+  });
+  items[index].classList.add('active');
+}
