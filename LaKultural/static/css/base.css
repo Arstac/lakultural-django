@@ -16,9 +16,13 @@ html, body {
   height: 100vh; /* Esto hace que el body tenga el 100% de la altura del viewport */
   margin: 0; /* Elimina cualquier margen predeterminado */
   padding: 0; /* Elimina cualquier padding predeterminado */
+  scrollbar-width: none; /* Para Firefox */
+  -ms-overflow-style: none; /* Para Internet Explorer 10+ */
 }
 
-
+html::-webkit-scrollbar {
+  display: none; /* Para Chrome, Safari y Opera */
+  }
 body {
   font-family: 'Open Sans', sans-serif;
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
@@ -28,7 +32,10 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  
 }
+
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Eurostile', sans-serif;

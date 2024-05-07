@@ -10,11 +10,14 @@ def carrito(request):
     try:
         carrito = Carrito.objects.get(usuario=request.user)
         items = carrito.items.all()
+        total_articulos = sum(item.cantidad for item in items)
     except Carrito.DoesNotExist:
         items = []
+        total_articulos = 0
     return render(request, 'carrito/carrito.html', {'carrito': carrito,
                                                     'items': items,
-                                                    'productos': productos})
+                                                    'productos': productos,
+                                                    'total_articulos': total_articulos})
 
 def agregar_producto(request, producto_id):
     producto = get_object_or_404(Producto, id=producto_id)
@@ -47,11 +50,13 @@ def update_item_quantity(request, item_id, product_id, quantity):
     item = get_object_or_404(ItemCarrito, id=item_id, producto_id=product_id)
     item.cantidad = int(quantity)
     item.save()
-    
+
     carrito = item.carrito
     total_carrito = sum(item.subtotal() for item in carrito.items.all())
-    
+    total_items = sum(item.cantidad for item in carrito.items.all())  # Total de artículos
+
     return JsonResponse({
         'subtotal': item.subtotal(),
-        'total_carrito': total_carrito
+        'total_carrito': total_carrito,
+        'total_items': total_items  # Devuelve el total de artículos en el carrito
     })

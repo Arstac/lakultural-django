@@ -232,6 +232,7 @@ document.addEventListener('DOMContentLoaded', function () {
           .then(data => {
               document.querySelector(`.subtotal[data-item-id="${itemId}"]`).textContent = `${data.subtotal} €`;
               document.querySelector('.total-carrito').textContent = `${data.total_carrito} €`;
+              document.querySelector('.total-items').textContent = `(${data.total_items}) artículos`;
           })
           .catch(error => console.error('Error:', error));
   }

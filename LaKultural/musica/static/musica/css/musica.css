@@ -5,11 +5,12 @@
 /* General List Group Styling */
 .list-group-item {
     border: none;
-    padding: 10px 15px;
+    
     display: flex;
     background-color: transparent;
     border-radius: .5rem !important;
     margin-bottom: 0.5rem;
+    padding: 10px 15px;
     color: white !important;
   
   }

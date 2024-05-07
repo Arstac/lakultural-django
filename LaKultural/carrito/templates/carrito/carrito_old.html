@@ -11,8 +11,8 @@
 
 <div class="container">
 <div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row fix-height">
-        <div class="col-lg-9 col-md-6 scrolly">
+    <div class="row">
+        <div class="col-md-9">
             <div class="ibox">
                 <div class="ibox-title">
                     <span class="pull-right total-items">(<strong>{{ total_articulos  }}</strong>) artículos</span>
@@ -24,20 +24,20 @@
                 {% for item in items %}
                 <!-- List items dynamically generated. -->
                 <div class="row carrito-list list-group-item align-items-center text-start">
-                    
-                    <!-- IMATGE PRODUCTE -->
-                    <div class="col-lg-1 mb-2 mb-lg-0">
-                        <img src="{% static 'assets/img/events/event1.png' %}" class="img-fluid rounded-2" alt="Carrito">
+
+                    <!-- NOM PRODUCTE -->
+                    <div class="col-3 col-lg-1">
+                    <img src="{% static 'assets/img/events/event1.png' %}" class="img-fluid rounded-2" alt="Carrito">
                     </div>
                 
                     <!-- NOM I CATEGORIA PRODUCTE -->
-                    <div class="col-sm-3 col-lg-3 mb-2 mb-lg-0">
+                    <div class="col-7 col-lg-3">
                         <div class="fw-bold">{{ item.producto.nombre }}</div>
                         <div>{{ item.producto.categoria.nombre }}</div>
                     </div>
                 
                     <!-- PREU PRODUCTE -->
-                    <div class="col-sm-3 col-lg-2 mb-2 mb-lg-0">
+                    <div class="col-lg-2 d-none d-lg-block">
                         {% if item.producto.descuento_activo %}
                         {{ item.producto.precio_descuento }} €
                         <s class="small text-muted">{{ item.producto.precio }} €</s>
@@ -47,17 +47,19 @@
                     </div>
                 
                     <!-- QUANTITAT -->
-                    <div class="col-lg-2 mb-2 mb-lg-0">
+                    <div class="col-lg-2 d-none d-lg-block">
                         <input type="number" class="form-control w-auto quantity-input" data-product-id="{{ item.producto.id }}" value="{{ item.cantidad }}" name="cantidad" min="1" max="100" data-item-id="{{ item.id }}">
                     </div>
                 
                     <!-- SUBTOTAL PRODUCTE -->
-                    <div class="col-lg-2 mb-2 mb-lg-0 ">
-                        <h4 class="subtotal" data-item-id="{{ item.id }}">{{ item.subtotal }} €</h4>
+                    <div class="col-lg-2 d-none d-lg-block">
+                        <h4 class="subtotal" data-item-id="{{ item.id }}">
+                            {{ item.subtotal }} €
+                        </h4>
                     </div>
                     
                     <!-- Action Buttons for non-mobile view -->
-                    <div class=" col-lg-2 d-flex final-menu">
+                    <div class="col-lg-2 d-none d-lg-flex justify-content-end">
                         <a href="{% url 'carrito:quitar_producto' item.id %}" class="text-muted"><i class="fa fa-trash"></i></a>
                     </div>
             
@@ -72,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 tarjeta-checkout">
+        <div class="col-md-3 tarjeta-checkout">
             <div class="ibox">
                 <div class="ibox-title">
                     <h5>Resumen del pedido</h5>
